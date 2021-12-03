@@ -2,10 +2,7 @@ import path from "path";
 import fs from "fs";
 import iconv from "iconv-lite";
 
-const filePath = path.join(
-  "C:/Users/beomseok/PersonalDevelop/ShinhanESGMarketAdmin/data",
-  "직원.csv"
-);
+const filePath = path.join(path.resolve(), "../../직원.csv");
 const data = fs.readFileSync(filePath, "binary");
 const utf8Text = iconv.decode(data, "euc-kr");
 
@@ -25,9 +22,7 @@ for (let rowIndex in rows) {
         employee_no: row[0],
         name: row[1],
         nickname: "",
-        user_id: "",
-        user_pw: "",
-        bracnh_no: row[2],
+        branch_no: row[2],
         branch_nm: row[3],
       };
       result.push(temp);
