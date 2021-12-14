@@ -48,4 +48,4 @@ async function addCommunities(xlsxToData) {
 
 // getCommunities().then((result) => console.log(result));
 
-addCommunities(xlsxToData(0)).then((result) => console.log(result));
+// addCommunities(xlsxToData(0)).then((result) => console.log(result));

@@ -1,6 +1,6 @@
 import { db } from "../firebase-connect.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
-import { result } from "../data/csvtodata.js";
+import { userPlusComm } from "../data/usercomm.js";
 
 async function getUsers() {
   const userList = [];
@@ -35,12 +35,8 @@ async function addUsers(resultJSON) {
   }
 }
 
-getUsers().then((b) => {
-  // console.log(b);
-});
-
-addUsers(result).then((a) => {
-  // console.log(a);
+addUsers(userPlusComm()).then((a) => {
+  console.log(a);
 });
 
 getUsers().then((b) => {

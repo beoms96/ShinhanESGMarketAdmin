@@ -1,6 +1,6 @@
 import { db } from "../firebase-connect.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
-import { xlsxToData } from "../data/xlsxtodata.js";
+import { jumResult } from "../data/xlsxtodata.js";
 
 async function getBranches() {
   const branchList = [];
@@ -53,4 +53,4 @@ async function addBranches(xlsxToData) {
 
 // getBranches().then((result) => console.log(result));
 
-addBranches(xlsxToData(1)).then((result) => console.log(result));
+// addBranches(jumResult(1)).then((result) => console.log(result));
