@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "room": {
+      ".indexOn": [
+        "product_id",
+        "seller_id",
+        "buyer_id"
+      ]
+    },
+    "log": {
+      ".indexOn": [
+        "room_id"
+      ]
+    },
+    ".read": true,
+    ".write": true
+  }
+}

@@ -3,15 +3,19 @@ import { collection, addDoc, getDocs } from "firebase/firestore";
 
 export async function getUsers() {
   const userList = [];
-  const querySnapshot = await getDocs(collection(firestore, "user"));
-  querySnapshot.forEach((doc) => {
-    userList.push(doc.data());
-    console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-  });
+  try {
+    const querySnapshot = await getDocs(collection(firestore, "user"));
+    querySnapshot.forEach((doc) => {
+      userList.push(doc.data());
+      // console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+    });
+  } catch (err) {
+    alert(err.message);
+  }
   return userList;
 }
 
-export async function addUser(resultJSON) {
+export async function addOneUser(resultJSON) {
   const userList = await getUsers();
   const existEmployeeNo = [];
   for (const temp of userList) {
@@ -19,16 +23,16 @@ export async function addUser(resultJSON) {
   }
 
   try {
-    if (existEmployeeNo.includes(oneUser["employee_no"])) {
+    if (existEmployeeNo.includes(resultJSON["employee_no"])) {
       return "Exist";
     } else {
       const docRef = await addDoc(collection(firestore, "user"), resultJSON);
       console.log("Document writeen with ID: ", docRef.id);
     }
-    return true;
+    return "Success";
   } catch (e) {
     console.error("Error adding document: ", e);
-    return false;
+    return "Fail";
   }
 }
 
@@ -48,9 +52,9 @@ export async function addUsers(resultJSONArr) {
         console.log("Document writeen with ID: ", docRef.id);
       }
     }
-    return "Upload Success";
+    return "Success";
   } catch (e) {
     console.error("Error adding document: ", e);
-    return "Upload Fail";
+    return "Fail";
   }
 }
