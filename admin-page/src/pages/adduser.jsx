@@ -70,7 +70,7 @@ const RegisterUser = (props) => {
           <div className="form-group">
             <button
               type="submit"
-              className="btn btn-dark w-100"
+              className="btn btn-primary w-100"
               onSubmit={onSubmit}
             >
               사용자 추가

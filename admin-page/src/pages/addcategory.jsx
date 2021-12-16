@@ -70,7 +70,7 @@ const RegisterCategory = (props) => {
             <button
               disabled={!imageAsFile}
               type="submit"
-              className="btn btn-dark btn-lg w-100"
+              className="btn btn-primary btn-lg w-100"
               onSubmit={onSubmit}
             >
               카테고리 추가하기
