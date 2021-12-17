@@ -29,7 +29,7 @@ export function userPlusComm() {
       // 길이 0 -> 지점 사라지거나 한 경우
       oneEmpJSON.latitude = 0;
       oneEmpJSON.longitude = 0;
-      oneEmpJSON.community_code = 0;
+      oneEmpJSON.community_code = "0";
       oneEmpJSON.community_name = "";
     }
 
