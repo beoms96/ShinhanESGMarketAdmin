@@ -1,8 +1,17 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.auth!=null;
+    match /banner/{bannerId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth.uid == "0XL2yzNJmid9sprRfzTuIEc1m0h1";
+    }
+    match /category/{categoryId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth.uid == "0XL2yzNJmid9sprRfzTuIEc1m0h1";
+    }
+    match /product/{productId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
     }
   }
 }
