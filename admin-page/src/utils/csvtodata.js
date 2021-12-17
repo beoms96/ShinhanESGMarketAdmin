@@ -1,4 +1,5 @@
 import iconv from "iconv-lite";
+import { fillZero } from "./util";
 
 export function uploadCSVToData(file) {
   let reader = new FileReader();
@@ -17,7 +18,7 @@ export function uploadCSVToData(file) {
       if (row[18] === "0" && row[0]) {
         // 퇴직 구분이 0이고, 행번 데이터가 있을때만
         const temp = {
-          employee_no: row[0],
+          employee_no: fillZero(8, row[0]),
           name: row[1].trim(),
           nickname: "",
           branch_no: row[2],

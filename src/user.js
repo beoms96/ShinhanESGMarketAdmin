@@ -35,10 +35,10 @@ async function addUsers(resultJSON) {
   }
 }
 
-addUsers(userPlusComm()).then((a) => {
+/*addUsers(userPlusComm()).then((a) => {
   console.log(a);
-});
+});*/
 
-getUsers().then((b) => {
-  // console.log(b);
-});
+/*getUsers().then((b) => {
+  console.log(b.length);
+});*/

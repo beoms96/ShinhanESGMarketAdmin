@@ -13,6 +13,9 @@ const Home = (props) => {
           <Link className="btn btn-outline-primary" to={"/add-category"}>
             카테고리 추가
           </Link>
+          <Link className="btn btn-outline-primary" to={"/add-banner"}>
+            배너 추가
+          </Link>
           <Link className="btn btn-outline-primary" to={"/upload-employee-tbl"}>
             직원 테이블 업로드
           </Link>

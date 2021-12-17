@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { addOneUser } from "../context/user";
-import { findBranchAndCommunity } from "../utils/util";
+import { fillZero, findBranchAndCommunity } from "../utils/util";
 
 const RegisterUser = (props) => {
   const [employeeNo, setEmployeeNo] = useState("");
@@ -44,7 +44,8 @@ const RegisterUser = (props) => {
     }
 
     const branchCommunity = await findBranchAndCommunity(branchNo);
-    const reqJSON = { ...branchCommunity, employeeNo, name };
+    const fillEmployeeNo = fillZero(8, employeeNo);
+    const reqJSON = { ...branchCommunity, fillEmployeeNo, name };
 
     const result = await addOneUser(reqJSON);
 

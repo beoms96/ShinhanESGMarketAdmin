@@ -22,6 +22,11 @@ const Header = (props) => {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to={"/add-banner"}>
+                배너 추가
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to={"/upload-employee-tbl"}>
                 직원 테이블 업로드
               </Link>

@@ -1,6 +1,12 @@
 import { getBranch } from "../context/branch.js";
 import { getCommunity } from "../context/community.js";
 
+export function fillZero(width, str) {
+  return str.length >= width
+    ? str
+    : new Array(width - str.length + 1).join("0") + str;
+}
+
 export async function findBranchAndCommunity(branchNo) {
   const branchInfo = await getBranch(branchNo);
   let communityInfo = {};
@@ -10,8 +16,8 @@ export async function findBranchAndCommunity(branchNo) {
       branch_name: "0",
       community_code: "0",
       community_name: "0",
-      latitude: "0",
-      longitude: "0",
+      latitude: 0,
+      longitude: 0,
     };
   } else {
     communityInfo = await getCommunity(branchInfo.community_code);
